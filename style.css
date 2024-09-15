@@ -1,3 +1,112 @@
-body{
-    background-color:black;
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10vw;
+    /* Adattamento fluido per la dimensione del testo */
+    text-transform: uppercase;
+    letter-spacing: 1vw;
+    color: #fff;
+    background: linear-gradient(90deg, #ff004d, #ffcc00, #00ffcc, #004dff, #ff004d);
+    background-size: 500%;
+    animation: gradientMove 3s infinite linear;
+    text-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8), 0px 0px 40px rgba(255, 255, 0, 0.6), 0px 0px 60px rgba(0, 255, 255, 0.7);
+    border: 1vw solid rgba(255, 255, 255, 0.2);
+    padding: 2vw;
+    border-radius: 2vw;
+    box-shadow: 0px 0px 5vw rgba(255, 0, 0, 0.6), inset 0px 0px 3vw rgba(0, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: neonFlicker 1.5s infinite;
+    transform: skew(-5deg) rotate(-2deg);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+h1:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.8), transparent);
+    animation: pulse 3s infinite ease-in-out;
+    z-index: -1;
+}
+
+h1:hover {
+    transform: scale(1.2) skew(0deg) rotate(5deg);
+    box-shadow: 0px 0px 10vw rgba(255, 255, 0, 0.9), inset 0px 0px 4vw rgba(255, 0, 255, 0.8);
+}
+
+/* Effetti di animazione */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes neonFlicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        text-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8), 0px 0px 40px rgba(255, 255, 0, 0.6), 0px 0px 60px rgba(0, 255, 255, 0.7);
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.1;
+    }
+}
+
+/* Media Query per dispositivi più piccoli */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 12vw;
+        letter-spacing: 2vw;
+        padding: 3vw;
+    }
+
+    h1:hover {
+        box-shadow: 0px 0px 15vw rgba(255, 255, 0, 0.9), inset 0px 0px 5vw rgba(255, 0, 255, 0.8);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 15vw;
+        letter-spacing: 3vw;
+        padding: 4vw;
+    }
+
+    h1:hover {
+        box-shadow: 0px 0px 20vw rgba(255, 255, 0, 0.9), inset 0px 0px 6vw rgba(255, 0, 255, 0.8);
+    }
 }
